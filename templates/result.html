@@ -1,0 +1,12 @@
+<!-- result.html -->
+{% extends "base.html" %}
+{% block title %}Result{% endblock %}
+{% block content %}
+  <h2>Transcription Result</h2>
+  <audio controls src="{{ audio_url }}" class="w-100 mt-3"></audio>
+  <div class="mt-4">
+    {% for line in transcript %}
+      <p><strong>[{{ line.start|round(2) }} - {{ line.end|round(2) }}]</strong> {{ line.text }}</p>
+    {% endfor %}
+  </div>
+{% endblock %}
